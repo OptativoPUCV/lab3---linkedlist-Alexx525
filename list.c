@@ -19,7 +19,7 @@ struct List {
 
 typedef List List;
 
-Node * createNode(void * data) {
+Node * createNode(void * data){
     Node * new = (Node *)malloc(sizeof(Node));
     assert(new != NULL);
     new->data = data;
@@ -46,6 +46,7 @@ void * firstList(List * list)
     list->current = list->head;
     return list->current->data;
   }
+  
   else
     return NULL;
 }
@@ -70,6 +71,7 @@ void * lastList(List * list)
     list->current = list->tail;
     return list->current->data;
   }
+  
   else
     return NULL;
 }
@@ -78,6 +80,7 @@ void * prevList(List * list)
 {
   if (list->current == NULL || list->current->prev == NULL)
     return NULL;
+  
   else
   {
     list->current = list->current->prev;
@@ -110,7 +113,21 @@ void pushBack(List * list, void * data) {
     pushCurrent(list,data);
 }
 
-void pushCurrent(List * list, void * data) {
+void pushCurrent(List * list, void * data)
+{
+  Node* nuevo_nodo = (Node*) malloc(sizeof(Node));
+  nuevo_nodo->data = data;
+
+  if (list->current != NULL)
+  {
+    nuevo_nodo->prev = list->current;
+    nuevo_nodo->next = list->current->next;
+    list->current->next->prev = nuevo_nodo;
+    list->current->next = nuevo_nodo;
+  }
+
+  else
+    return NULL;
 }
 
 void * popFront(List * list) {
