@@ -139,8 +139,6 @@ void pushCurrent(List * list, void * data)
     list->current->next->prev = nuevo_nodo;
     list->current->next = nuevo_nodo;
   }
-
-  
 }
 
 void * popFront(List * list) {
@@ -153,8 +151,15 @@ void * popBack(List * list) {
     return popCurrent(list);
 }
 
-void * popCurrent(List * list) {
-    return NULL;
+void * popCurrent(List * list)
+{
+  Node* aux = list->current;
+
+  aux->prev->next = aux->next;
+  aux->next->prev = aux->prev;
+  list->current = aux->next;
+
+  return aux->data;
 }
 
 void cleanList(List * list) {
