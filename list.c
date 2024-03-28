@@ -52,15 +52,17 @@ void * firstList(List * list)
 
 void * nextList(List * list)
 {
-  if (list->current != NULL)
+  if (list->current == NULL || list->current->next == NULL)
+    return NULL;
+  
+  else
   {
     Node *aux = list->current;
     list->current = list->current->next;
     aux = aux->next;
     return aux->data;
   }
-  else
-    return NULL;
+  
 }
 
 void * lastList(List * list) {
