@@ -85,7 +85,15 @@ void * prevList(List * list)
   }
 }
 
-void pushFront(List * list, void * data) {
+void pushFront(List * list, void * data)
+{
+  Node* nuevo_nodo = (Node*) malloc(sizeof(Node));
+  nuevo_nodo->data = data;
+  nuevo_nodo->prev = NULL;
+
+  nuevo_nodo->next = list->head;
+  list->head->prev = nuevo_nodo;
+  list->head = nuevo_nodo;
 }
 
 void pushBack(List * list, void * data) {
