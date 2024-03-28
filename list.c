@@ -57,10 +57,8 @@ void * nextList(List * list)
   
   else
   {
-    Node *aux = list->current;
     list->current = list->current->next;
-    aux = aux->next;
-    return aux->data;
+    return list->current->data;
   }
   
 }
