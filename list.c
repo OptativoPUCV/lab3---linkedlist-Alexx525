@@ -96,8 +96,12 @@ void* popCurrent(List * list)
   return aux->data;
 }
 
-void cleanList(List * list) {
-    while (list->head != NULL) {
-        popFront(list);
-    }
+void cleanList(List * list)
+{
+  list->current = list->head;
+  
+  while (list->current != NULL)
+  {
+    popCurrent(list);
+  }
 }

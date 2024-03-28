@@ -16,3 +16,8 @@ test.c:(.text+0x174): undefined reference to `popFront'
 collect2: error: ld returned 1 exit status
 Compilation failed
 c281bc5
+Thu 28 Mar 2024 02:27:05 AM UTC: 
+ list.c | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
+ tests:  0|0
+5365da4
