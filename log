@@ -8,3 +8,11 @@ Thu 28 Mar 2024 02:03:35 AM UTC:
  tests:  1|5
 total_score: 10/70
 23a027d
+Thu 28 Mar 2024 02:23:59 AM UTC: 
+ list.c | 64 ++++++++++++++++++++++++++++++++++++++++------------------------
+ 1 file changed, 40 insertions(+), 24 deletions(-)
+/nix/store/039g378vc3pc3dvi9dzdlrd0i4q93qwf-binutils-2.39/bin/ld: /tmp/cc7Q5jc1.o: in function `cleanList':
+test.c:(.text+0x174): undefined reference to `popFront'
+collect2: error: ld returned 1 exit status
+Compilation failed
+c281bc5
